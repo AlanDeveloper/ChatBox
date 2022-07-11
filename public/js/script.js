@@ -24,8 +24,21 @@ form.addEventListener("submit", function (e) {
 const messages = document.getElementById("messages");
 socket.on("chat message", function(msg) {
     console.log("chegou uma msg " + msg)
-    var item = document.createElement("li");
+    let item = document.createElement("li");
     item.textContent = msg;
     messages.appendChild(item);
+    window.scrollTo(0, document.body.scrollHeight);
+});
+
+const usersDiv = document.getElementById("users");
+socket.on("update users", function (users) {
+    let item;
+    usersDiv.innerHTML = "";
+    users.forEach(user => {
+        item = document.createElement("li");
+        
+        item.textContent = user + " está online.";
+        usersDiv.appendChild(item);
+    });
     window.scrollTo(0, document.body.scrollHeight);
 });

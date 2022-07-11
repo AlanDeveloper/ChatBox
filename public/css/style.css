@@ -39,16 +39,24 @@ body {
     color: #fff;
 }
 
-#messages {
+.header {
+    display: flex;
+}
+
+#messages,
+#users {
     list-style-type: none;
     margin: 0;
     padding: 0;
+    width: 50%;
 }
 
-#messages>li {
+#messages>li,
+#users >li{
     padding: 0.5rem 1rem;
 }
 
-#messages>li:nth-child(odd) {
+#messages>li:nth-child(odd),
+#users >li:nth-child(odd){
     background: #efefef;
 }
